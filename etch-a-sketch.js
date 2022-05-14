@@ -1,15 +1,6 @@
 
 const container=document.querySelector('#container')
 
-/*for (let x=0;x < 256; x++) {
-    
-    this["grid"+x] = document.createElement('div')  // creates a variable that differentiates itself from the next based on the iteration
-    this["grid"+x].classList.add('grid')            // could've been an array lol
-    container.appendChild(this["grid"+x])
-    this["grid"+x].addEventListener('mouseover', () => {
-        this["grid"+x].classList.add('grid2')
-    })
-} */
 
 function gridSize() {
 
@@ -22,21 +13,22 @@ function gridSize() {
     
     else {
     
-    for (let x=0;x < (side*side); x++) {
+    for (let x=0;x < (side*side); x++) {            // loop varies depending on the grid's intended size  
     
         this["grid"+x] = document.createElement('div')  // creates a variable that differentiates itself from the next based on the iteration
         
-        let sizing = 1000/side
-        this["grid"+x].classList.add('grid')            // could've been an array lol
-        this["grid"+x].style.width = sizing + "px";
+        let sizing = 1000/side                          // sizing defines the size of a single div. 1000 is the default size of the container as per css
+        this["grid"+x].classList.add('grid')            
+        this["grid"+x].style.width = sizing + "px";      
         this["grid"+x].style.height = sizing + "px";
        
         container.appendChild(this["grid"+x])
         
-        this["grid"+x].addEventListener('mouseover', () => {
+        this["grid"+x].addEventListener('mouseover', () => { // hovering over a div changes it to .grid2 class
             this["grid"+x].classList.add('grid2')
         })
     }}
 }
 
-document.getElementById("btn"),onclick = gridSize;
+btn = document.getElementById("btn")
+btn.addEventListener('click',gridSize)
